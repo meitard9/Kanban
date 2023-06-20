@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Backend": {
+      "commandName": "Project",
+      "workingDirectory": "D:\\תואר\\סמסטר_ב\\מבוא_להנדסת_תוכנה\\Assignment3\\milestone1-eden\\Backend\\bin\\Debug\\net5.0"
+    }
+  }
+}

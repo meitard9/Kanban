@@ -1,0 +1,60 @@
+﻿<Window x:Class="Frontend.View.UserV"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Frontend.View"
+        mc:Ignorable="d"
+        Title="UserV" Height="594" Width="1014">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="{Binding Mode=OneTime,Path=Title}" TextWrapping="WrapWithOverflow" Grid.Column="1" Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="194" Height="50" ></TextBlock>
+        <TextBlock Text="{Binding Mode=OneWay,Path=Error}" TextWrapping="WrapWithOverflow" Foreground="{Binding Mode=OneWay, Path=TextColor}" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="70"  Width="300" FontWeight="Bold" FontSize="16"/>
+        <Button Content="Log out" Grid.Column="2" Grid.Row="0" FontWeight="Bold" FontSize="14" HorizontalAlignment="Right" VerticalAlignment="Top" Width="100" Height="50" Click="Logout_Click" ></Button>
+        <TextBlock Text="Boards" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Height="50" Grid.Column="0" Grid.Row="0" FontWeight="Bold" FontSize="14"></TextBlock>
+        <Button Content="Delete" IsEnabled="{Binding Mode=OneWay,Path=EnableForward}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="100" Height="50" Grid.Column="2" Grid.Row="0" FontWeight="Bold" FontSize="14" Click="Delete_Click"></Button>
+        <Button Content="Add" FontWeight="Bold" Grid.Row="0" Grid.Column="1" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Height="50" Click="Add_Click" ></Button>
+        <Button Content="Into" IsEnabled="{Binding Mode=OneWay,Path=EnableForward}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="100" Height="50" Grid.Column="2" Grid.Row="0" FontWeight="Bold"  FontSize="14" Click="Into_Click"></Button>
+        <TextBox Text="{Binding Mode=TwoWay, Path=BoardToAdd}" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Width="200" Height="50" Grid.Row="0" Grid.Column="1" />
+        <ListBox ItemsSource="{Binding Mode=TwoWay, Path=BoardCM.boards}" SelectedItem="{Binding Mode=TwoWay, Path=SelectedBoard}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Height="150" VerticalAlignment="Bottom">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="#FF003CFF" BorderThickness="1">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{Binding Mode=TwoWay,Path=CreatorEmail}" HorizontalAlignment="Center" VerticalAlignment="Top" Width="200" Height="50"></Label>
+                        <Label Content="{Binding Mode=TwoWay,Path=Name}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="200" Height="50"></Label>
+                    </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Content="Join" IsEnabled="{Binding Mode=OneWay,Path=EnableForward}" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Height="50" Grid.Column="2" Grid.Row="0" FontSize="14" Click="Join_Click"></Button>
+
+
+
+        <Label Content="Your in progress tasks"  Grid.Row="2" Grid.Column="0" FontWeight="Bold" FontSize="14"></Label>
+        <Button Content="Show" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="100" Height="50" Grid.Column="1" Grid.Row="2" FontSize="14"  Click="InProgress_Click"></Button>
+        <ListBox ItemsSource="{Binding Mode=TwoWay, Path=ProgresTasks}" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Height="150" VerticalAlignment="Bottom" >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical">
+                        <Label Content="{Binding Mode=TwoWay,Path=CreatorEmail}"></Label>
+                        <Label Content="{Binding Mode=TwoWay,Path=Name}"></Label>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+
+    </Grid>
+</Window>

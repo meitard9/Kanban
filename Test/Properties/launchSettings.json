@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Test": {
+      "commandName": "Project",
+
+      "workingDirectory": "C:\\Users\\edenb\\Desktop\\בן גוריון\\מבוא להנדסת תוכנה\\Assignments\\2\\new\\milestone1-eden\\Backend\\bin\\Debug\\net5.0"
+
+    }
+  }
+}
